@@ -136,4 +136,67 @@ int size_of_hashtable()
 	return size;
 }
  
-
+void main()
+{
+	int choice, key, value, n, c;
+ 
+	array = (struct hashtable_item*) malloc(max * sizeof(struct hashtable_item*));
+	init_array();
+ 
+	do {
+		printf("Implementation of Hash Table in C with Quadratic Probing.\n\n");
+		printf("MENU-: \n1.Inserting item in the Hash table" 
+                              "\n2.Removing item from the Hash table" 
+                              "\n3.Check the size of Hash table" 
+                              "\n4.Display Hash table"
+		       "\n\n Please enter your choice-:");
+ 
+		scanf("%d", &choice);
+ 
+		switch(choice)
+                {
+ 
+		case 1:
+ 
+		      printf("Inserting element in Hash table \n");
+		      printf("Enter key and value-:\t");
+		      scanf("%d %d", &key, &value);
+		      insert(key, value);
+ 
+		      break;
+ 
+		case 2:
+ 
+		      printf("Deleting in Hash table \n Enter the key to delete-:");
+		      scanf("%d", &key);
+		      remove_element(key);
+ 
+		      break;
+ 
+		case 3:
+ 
+		      n = size_of_hashtable();
+		      printf("Size of Hash table is-:%d\n", n);
+ 
+		      break;
+ 
+		case 4:
+ 
+		      display();
+ 
+		      break;
+ 
+		default:
+ 
+		       printf("Wrong Input\n");
+ 
+		}
+ 
+		printf("\n Do you want to continue-:(press 1 for yes)\t");
+		scanf("%d", &c);
+ 
+	}while(c == 1);
+ 
+	getch();
+ 
+}
